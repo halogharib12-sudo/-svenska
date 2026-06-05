@@ -1,0 +1,278 @@
+<style>
+    :root {
+        --primary-blue: #006aa7;
+        --accent-gold: #fecc00;
+        --bg-light: #f8f9fa;
+        --text-dark: #1e293b;
+        --card-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --accent-red: #e11d48;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.6;
+        padding-bottom: 90px;
+    }
+
+    .app-header {
+        background-color: var(--primary-blue);
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--card-bg);
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid var(--border-color);
+        padding: 12px 0;
+        z-index: 1000;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-item {
+        background: none;
+        border: none;
+        color: #64748b;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex: 1;
+    }
+
+    .nav-item span.icon {
+        font-size: 22px;
+    }
+
+    .nav-item.active {
+        color: var(--primary-blue);
+    }
+
+    .content-container {
+        padding: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    .grammar-level-badge {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 8px;
+    }
+    .bg-a1 { background-color: #10b981; }
+    .bg-b1 { background-color: #3b82f6; }
+    .bg-c1 { background-color: #8b5cf6; }
+
+    .grammar-section {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .grammar-section h2 {
+        color: var(--primary-blue);
+        font-size: 17px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 6px;
+    }
+
+    .grammar-section h3 {
+        font-size: 14px;
+        color: #334155;
+        margin: 12px 0 6px 0;
+        background: #f1f5f9;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+    }
+
+    .grammar-section p {
+        font-size: 13.5px;
+        color: #475569;
+        margin-bottom: 8px;
+        margin-top: 5px;
+    }
+
+    .grammar-section ul {
+        margin-right: 20px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: #475569;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        background: white;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        direction: ltr;
+        font-size: 13.5px;
+    }
+
+    th, td {
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--border-color);
+        white-space: nowrap;
+    }
+
+    th {
+        background-color: #f1f5f9;
+        color: #1e293b;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f8fafc;
+    }
+
+    .td-ku {
+        direction: rtl;
+        text-align: right;
+        font-size: 13px;
+        color: #334155;
+        font-weight: bold;
+    }
+
+    .verb-card {
+        background: var(--card-bg);
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 12px;
+        border: 1px solid var(--border-color);
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .verb-id {
+        background: #e2e2e2;
+        color: #475569;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .swedish-title {
+        font-size: 15px;
+        font-weight: bold;
+        color: var(--primary-blue);
+        direction: ltr;
+    }
+
+    .particle-badge {
+        background: #fff1f2;
+        color: var(--accent-red);
+        font-size: 12px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        display: inline-block;
+        margin: 4px 0;
+    }
+
+    .example-box {
+        background: #f8fafc;
+        border-left: 3px solid var(--primary-blue);
+        padding: 8px 12px;
+        margin: 10px 0;
+        border-radius: 0 6px 6px 0;
+    }
+
+    .ex-sv {
+        direction: ltr;
+        text-align: left;
+        font-weight: 600;
+        font-size: 14px;
+        color: #0f172a;
+    }
+
+    .ex-ku {
+        direction: rtl;
+        text-align: right;
+        font-size: 13px;
+        color: #475569;
+    }
+
+    .audio-btn {
+        background: #f1f5f9;
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .sub-nav {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .sub-btn {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid var(--border-color);
+        background: white;
+        border-radius: 20px;
+        font-size: 12.5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .sub-btn.active {
+        background: var(--primary-blue);
+        color: white;
+    }
+</style>
